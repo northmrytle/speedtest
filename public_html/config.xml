@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "net.northmyrtle.speedtest"
+        version     = "1.2.0"
+        versionCode = "10" >
+        <!-- versionCode is optional and Android only -->
+        <!-- <preference name="phonegap-version" value="3.5.0" /> -->
+        <preference name="phonegap-version" value="cli-6.3.0" />
+
+        <name>Phonegap Speed Test</name>
+        <description>Phonegap speed test application</description>
+        <author href="http://www.northmyrtle.net" email="todd@northmyrtle.net">
+        Todd Keenan
+        </author>
+        
+        <gap:platform name="ios" />
+        <plugin name="cordova-plugin-device"         source="npm" spec="1.0.1" />
+        <plugin name="cordova-plugin-geolocation"    source="npm" />" 
+        
+        <feature name="Geolocation">
+            <param name="ios-package" value="CDVLocation" />
+        </feature>
+        
+    </widget>
