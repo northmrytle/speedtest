@@ -15,6 +15,7 @@
         </author>
         
         <gap:platform name="ios" />
+        <gap:platform name="android" />
         
         <plugin name="cordova-plugin-device"         source="npm" spec="1.0.1" />
         <plugin name="cordova-plugin-geolocation"    source="npm" />" 
