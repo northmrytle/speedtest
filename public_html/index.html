@@ -14,6 +14,8 @@
     //
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        
+        setInterval('navigator.geolocation.getCurrentPosition(onSuccess, onError)', 1000);
     }
 
     // onSuccess Geolocation
@@ -40,6 +42,7 @@
     </script>
   </head>
   <body>
-    <p id="geolocation">Finding geolocation...</p>
+    Finding geolocaiton...
+    <p id="geolocation"></p>
   </body>
 </html>
