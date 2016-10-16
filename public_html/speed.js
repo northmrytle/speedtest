@@ -21,12 +21,12 @@
     
     function start(){
         console.log('start()');;
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        navigator.geolocation.watchPosition(onSuccess, onError);
         console.log ("curlat " + curlat );
         console.log ("curlon " + curlon );
         lastlat = curlat;
         lastlon = curlon;
-        setInterval('getSpeed()', 1000);
+//        setInterval('getSpeed()', 1000);
         
         
     }
@@ -49,6 +49,9 @@
                             'Heading: '            + position.coords.heading               + '<br />' +
                             'Speed: '              + position.coords.speed                 + '<br />' +
                             'Timestamp: '          + position.timestamp                    + '<br />';
+    
+        getSpeed()
+    
     }
 
     // onError Callback receives a PositionError object
@@ -96,7 +99,7 @@
     }
 
     function getSpeed(){
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+//    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 //    console.log(lastlat +','+ lastlon + ',' + curlat + ',' + curlon);
    
     var dist = distance_on_geoid(lastlat, lastlon, curlat, curlon);
@@ -106,7 +109,7 @@
     var speed_mps = dist / time_s;
     var speed_kph = (speed_mps * 3600.0) / 1000.0;
     var speed_mph = (speed_kph * 0.621371);
-//    console.log('speed: ' + speed_kph);
+    console.log('speed: ' + speed_kph);
     
 
     lastlat = curlat;
