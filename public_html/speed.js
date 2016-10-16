@@ -26,7 +26,7 @@
         console.log ("curlon " + curlon );
         lastlat = curlat;
         lastlon = curlon;
-        setInterval('getSpeed()', 100);
+        setInterval('getSpeed()', 1000);
         
         
     }
