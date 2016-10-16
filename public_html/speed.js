@@ -13,13 +13,15 @@
     var curlat;
     var curtime; 
     
+    var speed;
+    
     start();    
     
     function onDeviceReady() {
         start();
     };
     
-    function start(){
+    function startSpeed(){
         console.log('start()');;
         navigator.geolocation.watchPosition(onSuccess, onError);
         console.log ("curlat " + curlat );
@@ -50,7 +52,13 @@
                             'Speed: '              + position.coords.speed                 + '<br />' +
                             'Timestamp: '          + position.timestamp                    + '<br />';
     
-        getSpeed()
+        calcSpeed();
+    
+        lastlat = curlat;
+        lastlon = curlon;
+        lasttime = curtime;
+    
+   
     
     }
 
@@ -61,7 +69,7 @@
               'message: ' + error.message + '\n');
     }
 
-    function distance_on_geoid(lat1, lon1, lat2, lon2) {
+    function calcDist(lat1, lon1, lat2, lon2) {
 //        console.log ('distance_on_geoid');
     
 	// Convert degrees to radians
@@ -102,7 +110,7 @@
 //    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 //    console.log(lastlat +','+ lastlon + ',' + curlat + ',' + curlon);
    
-    var dist = distance_on_geoid(lastlat, lastlon, curlat, curlon);
+    var dist = calcDist(lastlat, lastlon, curlat, curlon);
 //    console.log ("distance " + dist);
         
     var time_s = (curtime - lasttime) / 1000.0;
@@ -112,11 +120,7 @@
     console.log('speed: ' + speed_kph);
     
 
-    lastlat = curlat;
-    lastlon = curlon;
-    lasttime = curtime;
-    
-    var element = document.getElementById('speed');
+   var element = document.getElementById('speed');
         element.innerHTML = "mps " + speed_mps + '<br />' +
                             "Kph " + speed_kph + '<br />' +
                             "Mph " + speed_mph + '<br />';
