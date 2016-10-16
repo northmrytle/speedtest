@@ -15,10 +15,10 @@
     
     var speed;
     
-    start();    
+    startSpeed();    
     
     function onDeviceReady() {
-        start();
+        startSpeed();
     };
     
     function startSpeed(){
@@ -106,7 +106,7 @@
         return ret_val;
     }
 
-    function getSpeed(){
+    function calcSpeed(){
 //    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 //    console.log(lastlat +','+ lastlon + ',' + curlat + ',' + curlon);
    
