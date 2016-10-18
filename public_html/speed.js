@@ -23,7 +23,6 @@
     
     function startSpeed(){
         console.log('start()');
-        alert('start speed');
         navigator.geolocation.watchPosition(onSuccess, onError);
         console.log ("curlat " + curlat );
         console.log ("curlon " + curlon );
